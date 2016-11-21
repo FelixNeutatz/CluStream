@@ -30,7 +30,7 @@ under the License.
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<flink.version>1.1.3</flink.version>
+		<flink.version>1.2-SNAPSHOT</flink.version>
 	</properties>
 
 	<repositories>
@@ -45,31 +45,42 @@ under the License.
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+        <repository>
+            <id>sonatype-nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
 	</repositories>
-	
-	<!-- 
-		
-		Execute "mvn clean package -Pbuild-jar"
-		to build a jar file out of this project!
 
-		How to use the Flink Quickstart pom:
 
-		a) Adding new dependencies:
-			You can add dependencies to the list below.
-			Please check if the maven-shade-plugin below is filtering out your dependency
-			and remove the exclude from there.
+    <!-- 
+        
+        Execute "mvn clean package -Pbuild-jar"
+        to build a jar file out of this project!
 
-		b) Build a jar for running on the cluster:
-			There are two options for creating a jar from this project
+        How to use the Flink Quickstart pom:
 
-			b.1) "mvn clean package" -> this will create a fat jar which contains all
-					dependencies necessary for running the jar created by this pom in a cluster.
-					The "maven-shade-plugin" excludes everything that is provided on a running Flink cluster.
+        a) Adding new dependencies:
+            You can add dependencies to the list below.
+            Please check if the maven-shade-plugin below is filtering out your dependency
+            and remove the exclude from there.
 
-			b.2) "mvn clean package -Pbuild-jar" -> This will also create a fat-jar, but with much
-					nicer dependency exclusion handling. This approach is preferred and leads to
-					much cleaner jar files.
-	-->
+        b) Build a jar for running on the cluster:
+            There are two options for creating a jar from this project
+
+            b.1) "mvn clean package" -> this will create a fat jar which contains all
+                    dependencies necessary for running the jar created by this pom in a cluster.
+                    The "maven-shade-plugin" excludes everything that is provided on a running Flink cluster.
+
+            b.2) "mvn clean package -Pbuild-jar" -> This will also create a fat-jar, but with much
+                    nicer dependency exclusion handling. This approach is preferred and leads to
+                    much cleaner jar files.
+    -->
 
 	<dependencies>
 		<dependency>
